@@ -38,7 +38,7 @@ class GZip {
     while (!isDone) {
       final readChunk = await reader.read().toDart;
       if (readChunk.value != null) {
-        values.addAll(readChunk.value as Uint8List);
+        values.addAll(readChunk.value.dartify() as Uint8List);
       }
       isDone = readChunk.done;
     }
